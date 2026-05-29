@@ -14,40 +14,36 @@ export function FilingTimeline() {
         </p>
       </div>
 
-      {/* Desktop: horizontal runway */}
-      <div className="hidden px-5 py-10 md:block">
+      {/* Desktop: horizontal runway, markers evenly spaced (dates cluster, so
+          equal gaps read more clearly than true proportional spacing). */}
+      <div className="hidden px-8 py-10 md:block">
         <div className="relative">
-          <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-line-strong" />
+          {/* the track sits behind the dot row; dots are h-4 so their centre is
+              8px (top-2) from the top of each column. */}
+          <div className="absolute inset-x-[12.5%] top-2 h-px -translate-y-1/2 bg-line-strong" />
           <motion.div
-            className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 bg-salmon"
+            className="absolute left-[12.5%] top-2 h-0.5 -translate-y-1/2 bg-salmon"
             initial={{ width: 0 }}
-            whileInView={{ width: '100%' }}
+            whileInView={{ width: '75%' }}
             viewport={{ once: true }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           />
-          <div className="relative flex justify-between">
+          <div className="relative flex">
             {timeline.map((m, i) => (
               <motion.div
                 key={m.id}
-                className="flex w-40 flex-col items-center text-center"
+                className="flex w-1/4 flex-col items-center px-2 text-center"
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.18, duration: 0.5 }}
-                style={{
-                  position: 'absolute',
-                  left: `${m.t * 100}%`,
-                  transform: 'translateX(-50%)',
-                }}
               >
                 <span
-                  className={`mb-3 flex h-4 w-4 items-center justify-center rounded-full ring-4 ${
-                    m.emphasise
-                      ? 'bg-salmon ring-salmon-tint'
-                      : 'bg-ink ring-paper-sunk'
+                  className={`flex h-4 w-4 flex-none items-center justify-center rounded-full ring-4 ${
+                    m.emphasise ? 'bg-salmon ring-salmon-tint' : 'bg-ink ring-paper-sunk'
                   }`}
                 />
-                <span className="tnum font-mono text-xs font-700 text-ink">{m.date}</span>
+                <span className="tnum mt-3 font-mono text-xs font-700 text-ink">{m.date}</span>
                 <span className="mt-1 text-[0.8rem] leading-snug text-ink-soft">
                   {m.obligation}
                 </span>
@@ -61,8 +57,6 @@ export function FilingTimeline() {
               </motion.div>
             ))}
           </div>
-          {/* spacer to give the absolute markers height */}
-          <div className="h-28" />
         </div>
       </div>
 

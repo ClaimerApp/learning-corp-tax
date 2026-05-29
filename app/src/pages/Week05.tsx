@@ -208,7 +208,7 @@ export function Week05() {
       </div>
 
       <article className="mx-auto max-w-2xl px-5 sm:px-0">
-        <Section index={7} title="The year-2 tax computation">
+        <Section index={7} id="computation" title="The year-2 tax computation">
           <p>
             Profit before tax is £66,116. Add back depreciation and entertaining, take off
             the AIA on Tom's MacBook, and TTP is £65,803 - now inside the{' '}
@@ -227,7 +227,7 @@ export function Week05() {
       </div>
 
       <article className="mx-auto max-w-2xl px-5 sm:px-0">
-        <Section index={8} title="The director's loan and s.455">
+        <Section index={8} id="s455" title="The director's loan and s.455">
           <p>
             Sarah's loan is £4,200 overdrawn at year-end. If it is not repaid within nine
             months and a day - by <strong>1 January 2028</strong> - the company pays{' '}
@@ -258,7 +258,7 @@ export function Week05() {
           </p>
         </Section>
 
-        <Section index={10} title="The R&D question">
+        <Section index={10} id="rnd" title="The R&D question">
           <p>
             Sarah spent about £8,000 on a Figma plugin for her own workflow and wonders
             about <Term slug="rnd">R&amp;D</Term> relief. Run the three CIRD gates - all
@@ -279,7 +279,7 @@ export function Week05() {
           honestly.
         </Callout>
 
-        <Section index={11} title="The CT600 and CT600A for year 2">
+        <Section index={11} id="ct600a" title="The CT600 and CT600A for year 2">
           <p>
             Year 2 differs in three ways: marginal relief is now non-zero, total tax is
             trading CT plus s.455, and an overdrawn loan means a{' '}
