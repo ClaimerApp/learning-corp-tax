@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f4ece0;
+  color: #1c1b19;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+/* Paper texture layered onto the whole canvas */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(120% 80% at 100% 0%, rgba(232, 116, 91, 0.06), transparent 55%),
+    radial-gradient(100% 70% at 0% 100%, rgba(176, 134, 60, 0.06), transparent 55%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: rgba(232, 116, 91, 0.28);
+  color: #1c1b19;
+}
+
+/* Tabular figures everywhere we show money */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* Fraunces optical sizing for big display text */
+.display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+}
+
+/* Thin scrollbar in the editorial spirit */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #ebe0cf;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7b79c;
+  border: 3px solid #ebe0cf;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b0863c;
+}
+
+/* Prose rhythm for course reading */
+.prose-ledger p {
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: #2a2823;
+  margin: 0 0 1.15rem;
+}
+.prose-ledger p:last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

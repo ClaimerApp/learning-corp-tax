@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+app/dist/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Local Claude settings
+.claude/settings.local.json
